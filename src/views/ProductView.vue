@@ -1,7 +1,7 @@
 <template>
   <div class="pt-16 p-2 h-screen">
     <div class="sm:mt-10 flex flex-col sm:flex-row w-full justify-center h-2/3">
-      <div class="w-full sm:w-1/4 overflow-hidden">
+      <div class="w-full sm:w-1/2 lg:w-1/4">
         <img
           :src="product.image"
           alt="product"
@@ -12,8 +12,8 @@
       <div class="sm:ml-3 flex flex-col justify-between">
         <div>
           <p class="text-2xl font-bold">{{ product.name }}</p>
-          <p class="text-lg">${{ product.price }}</p>
-          <p class="text-lg text-gray-700">{{ product.description }}</p>
+          <p class="text-xl font-semibold">${{ product.price }}</p>
+          <p class="text-lg text-gray-700 mt-3">{{ product.description }}</p>
         </div>
         <div class="mt-3">
           <button

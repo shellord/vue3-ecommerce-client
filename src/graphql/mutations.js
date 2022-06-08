@@ -17,3 +17,21 @@ export const SIGNUP_USER = gql`
     }
   }
 `;
+
+export const ADD_TO_CART = gql`
+  mutation AddToCart($productId: ID!) {
+    addToCart(productId: $productId) {
+      product {
+        id
+        name
+        category
+        description
+        image
+        price
+        createdAt
+      }
+      quantity
+      createdAt
+    }
+  }
+`;

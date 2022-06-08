@@ -41,3 +41,17 @@ export const GET_CART = gql`
     }
   }
 `;
+
+export const GET_PRODUCT_BY_ID = gql`
+  query Product($id: ID!) {
+    product(id: $id) {
+      id
+      name
+      price
+      image
+      description
+      category
+      createdAt
+    }
+  }
+`;

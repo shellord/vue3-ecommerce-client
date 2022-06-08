@@ -4,16 +4,11 @@
   >
     <router-link to="/" class="font-logo text-4xl">Brandly</router-link>
     <div class="flex space-x-5">
-    
-        <CartIcon :count="10" />
+      <CartIcon :count="10" />
     </div>
   </nav>
 </template>
 
 <script setup>
-
-import CartIcon from '@/components/icons/CartIcon.vue'
-
-
-
+import CartIcon from '@/components/icons/CartIcon.vue';
 </script>

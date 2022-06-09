@@ -1,6 +1,9 @@
 <template>
   <div class="pt-16 p-2 h-screen">
-    <div class="sm:mt-10 flex flex-col sm:flex-row w-full justify-center h-2/3">
+    <div
+      class="sm:mt-10 flex flex-col sm:flex-row w-full justify-center h-2/3"
+      v-if="product"
+    >
       <div class="w-full sm:w-1/2 lg:w-1/4">
         <img
           :src="product.image"
@@ -44,15 +47,7 @@ const { result } = useQuery(GET_PRODUCT_BY_ID, {
   id: route.params.id,
 });
 
-const product = computed(
-  () =>
-    result.value?.product ?? {
-      name: '',
-      description: '',
-      price: 0,
-      image: '',
-    }
-);
+const product = computed(() => result.value?.product);
 
 const {
   mutate: addToCart,

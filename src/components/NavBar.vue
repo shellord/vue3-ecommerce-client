@@ -37,5 +37,5 @@ const toggleShowSideBar = () => {
 };
 
 const { result } = useQuery(GET_CART);
-const cart = computed(() => result.value || {});
+const cart = computed(() => result.value?.cart ?? {});
 </script>

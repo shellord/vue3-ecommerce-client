@@ -90,7 +90,7 @@ const proceedToCheckout = () => {
 const { result } = useQuery(GET_CART);
 const cart = computed(
   () =>
-    result.value ?? {
+    result.value?.cart ?? {
       totalPrice: 0,
       cartItems: [],
     }

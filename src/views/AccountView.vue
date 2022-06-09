@@ -2,7 +2,7 @@
   <div class="flex h-screen pt-24 flex-col items-center">
     <div class="flex w-full max-w-xl px-5 justify-between items-center">
       <div v-if="user">
-        <p>Welcome {{ user.name }}</p>
+        <p class="text-xl font-semibold">Welcome {{ user.name }}</p>
       </div>
       <div>
         <button

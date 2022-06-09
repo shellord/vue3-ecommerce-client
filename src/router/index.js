@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
 import HomeView from '@/views/HomeView.vue';
 
 const router = createRouter({
@@ -40,7 +39,27 @@ const router = createRouter({
       component: () => import('@/views/CategoryView.vue'),
       props: true,
     },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: () => import('@/views/CheckoutView.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!localStorage.getItem('accessToken')) {
+      next('/login');
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

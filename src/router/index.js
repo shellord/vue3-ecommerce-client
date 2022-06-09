@@ -34,6 +34,12 @@ const router = createRouter({
         requiresAuth: true,
       },
     },
+    {
+      path: '/category/:category',
+      name: 'category',
+      component: () => import('@/views/CategoryView.vue'),
+      props: true,
+    },
   ],
 });
 

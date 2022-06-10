@@ -19,7 +19,7 @@
         <div class="flex justify-center">
           <p class="font-semibold text-3xl">Your Orders</p>
         </div>
-        <div class="w-full overflow-scroll p-1">
+        <div class="w-full overflow-x-visible">
           <table class="w-full mt-10 shadow">
             <thead class="text-xs text-white uppercase bg-gray-500">
               <tr>

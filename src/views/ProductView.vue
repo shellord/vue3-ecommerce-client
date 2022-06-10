@@ -1,5 +1,13 @@
 <template>
   <div class="pt-16 p-2 h-screen">
+    <div v-if="!product && !loading">
+      <p class="text-center">
+        Product not found.
+        <br />
+        <br />
+        <span class="text-gray-600"> Please try again later. </span>
+      </p>
+    </div>
     <div
       class="sm:mt-10 flex flex-col sm:flex-row w-full justify-center h-2/3"
       v-if="product"
@@ -43,7 +51,7 @@ const route = useRoute();
 const router = useRouter();
 const toast = useToast();
 
-const { result } = useQuery(GET_PRODUCT_BY_ID, {
+const { result, loading } = useQuery(GET_PRODUCT_BY_ID, {
   id: route.params.id,
 });
 

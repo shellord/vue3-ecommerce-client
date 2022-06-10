@@ -95,7 +95,6 @@ const cart = computed(
       cartItems: [],
     }
 );
-console.log(cart.value.totalQuantity);
 
 const emit = defineEmits(['toggleShow']);
 </script>

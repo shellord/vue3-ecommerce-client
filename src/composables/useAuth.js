@@ -76,6 +76,7 @@ export const useAuth = () => {
     state.isAuthenticated = false;
     router.push('/login');
     apolloClient.resetStore();
+    window.location.reload();
   };
 
   return {

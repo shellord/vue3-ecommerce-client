@@ -13,7 +13,8 @@
         </button>
       </div>
     </div>
-    <div class="flex w-full max-w-xl mt-10">
+    <div class="w-full flex justify-center" v-if="loading">Loading</div>
+    <div class="flex w-full max-w-xl mt-10" v-if="!loading">
       <div v-if="orders.orderItems.length > 0" class="w-full overflow-hidden">
         <div class="flex justify-center">
           <p class="font-semibold text-3xl">Your Orders</p>
@@ -53,7 +54,7 @@
           </table>
         </div>
       </div>
-      <div v-else>
+      <div v-else class="w-full text-center">
         <p>No orders</p>
       </div>
     </div>
@@ -70,7 +71,7 @@ import { GET_ORDERS, ME_QUERY } from '@/graphql';
 const { result: meResult } = useQuery(ME_QUERY);
 const user = computed(() => meResult.value?.me);
 
-const { result: orderResult } = useQuery(GET_ORDERS);
+const { result: orderResult, loading } = useQuery(GET_ORDERS);
 const orders = computed(
   () =>
     orderResult.value?.order ?? {

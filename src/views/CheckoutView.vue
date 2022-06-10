@@ -143,7 +143,7 @@ const validateForm = (name, email, phone, address, city, zip) => {
     return false;
   }
   if (phone.length !== 10 || isNaN(phone)) {
-    toast.error('Please enter a valid phone number');
+    toast.error('Please enter a valid 9 digit phone number');
     return false;
   }
   if (isNaN(zip)) {

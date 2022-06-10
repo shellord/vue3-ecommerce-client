@@ -18,32 +18,40 @@
         <div class="flex justify-center">
           <p class="font-semibold text-3xl">Your Orders</p>
         </div>
-        <table class="w-full mt-10 shadow">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-200">
-            <tr>
-              <th class="p-3">order</th>
-              <th class="p-3">name</th>
-              <th class="p-3">quantity</th>
-              <th class="p-3">price</th>
-              <th class="p-3">total</th>
+        <div class="w-full overflow-scroll p-1">
+          <table class="w-full mt-10 shadow">
+            <thead class="text-xs text-white uppercase bg-gray-500">
+              <tr>
+                <th class="p-3">#order</th>
+                <th class="p-3">Date</th>
+                <th class="p-3">name</th>
+                <th class="p-3">quantity</th>
+                <th class="p-3">price</th>
+                <th class="p-3">total</th>
+              </tr>
+            </thead>
+            <tr
+              v-for="orderItem in orders.orderItems"
+              :key="orderItem.id"
+              class="text-sm sm:text-base even:bg-slate-200"
+            >
+              <td class="text-center border-b p-2">{{ orderItem.id }}</td>
+              <td class="text-center border-b p-2">
+                {{ new Date(orderItem.product.createdAt).toLocaleString() }}
+              </td>
+              <td class="text-center border-b p-2">
+                {{ orderItem.product.name }}
+              </td>
+              <td class="text-center border-b p-2">{{ orderItem.quantity }}</td>
+              <td class="text-center border-b p-2">
+                ${{ orderItem.product.price }}
+              </td>
+              <td class="text-center border-b p-2">
+                ${{ orderItem.product.price * orderItem.quantity }}
+              </td>
             </tr>
-          </thead>
-          <!-- <div v-if="orders"> -->
-          <tr v-for="orderItem in orders.orderItems" :key="orderItem.id">
-            <td class="text-center border-b p-2">{{ orderItem.id }}</td>
-            <td class="text-center border-b p-2">
-              {{ orderItem.product.name }}
-            </td>
-            <td class="text-center border-b p-2">{{ orderItem.quantity }}</td>
-            <td class="text-center border-b p-2">
-              ${{ orderItem.product.price }}
-            </td>
-            <td class="text-center border-b p-2">
-              ${{ orderItem.product.price * orderItem.quantity }}
-            </td>
-          </tr>
-          <!-- </div> -->
-        </table>
+          </table>
+        </div>
       </div>
       <div v-else>
         <p>No orders</p>

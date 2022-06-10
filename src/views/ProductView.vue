@@ -1,12 +1,7 @@
 <template>
   <div class="pt-16 p-2 h-screen">
     <div v-if="!product && !loading">
-      <p class="text-center">
-        Product not found.
-        <br />
-        <br />
-        <span class="text-gray-600"> Please try again later. </span>
-      </p>
+      <p class="text-center">Product not found.</p>
     </div>
     <div
       class="sm:mt-10 flex flex-col sm:flex-row w-full justify-center h-2/3"

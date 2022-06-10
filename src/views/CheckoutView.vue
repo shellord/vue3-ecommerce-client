@@ -3,7 +3,18 @@
     <div class="flex justify-center">
       <p class="font-semibold text-xl">Checkout</p>
     </div>
-    <div class="flex justify-center">
+    <div v-if="cart.totalQuantity === 0">
+      <p class="text-center">
+        Your cart is empty.
+        <br />
+        <br />
+        <span class="text-gray-600">
+          You can add items to your cart by clicking on the "Add to Cart" button
+          on the product page.
+        </span>
+      </p>
+    </div>
+    <div class="flex justify-center" v-if="cart.totalQuantity !== 0">
       <div class="w-full px-3 sm:px-0 sm:w-96">
         <form
           class="space-y-3"
